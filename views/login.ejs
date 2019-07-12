@@ -1,0 +1,115 @@
+<form action="/checklogin" method="POST">
+    <h1>Login</h1>
+
+    <input type="text" placeholder="Email" name="username" required>
+
+    <input id="pwd" type="password" placeholder="Password" name="password" required>
+    <label for="button">
+        Show password
+    </label>
+    <input type="checkbox" Id="button" onclick="showPwd()">
+    <input id="anim" type="submit" value="sign in">
+    <div id="reg_div">
+        <a href="/register">Registry</a>
+    </div>
+</form>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #252525;
+        font-family: sans-serif;
+        background-image: url('/img/mike.jpg')
+    }
+
+    form {
+        border-radius: 20px 20px 0 0;
+        background: #252525;
+        color: #fff;
+        position: absolute;
+        width: 300px;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    form h1 {
+        text-align: center;
+        border-bottom: 3px solid orangered;
+        padding-bottom: 20px;
+    }
+
+    #button {
+        display: none;
+    }
+
+    input {
+        margin: 20px auto;
+        background: transparent;
+        padding: 5px 10px;
+        font-size: 20px;
+        width: 180px;
+
+        text-align: center;
+        border: 3px solid orangered;
+        outline: none;
+        color: #fff;
+        transition: 0.90s;
+        border-radius: 20px;
+    }
+    input[type=submit] {
+        cursor: pointer;
+    }
+    input:focus {
+        transition: 900ms;
+        font-size: 20px;
+        width: 250px;
+        trnsform: scale(1.1);
+        border: 3px solid lightblue;
+    }
+
+    label {
+        display: block;
+        text-align: center;
+
+    }
+
+    #anim {
+        animation: bg 2s infinite;
+    }
+
+    @keyframes bg {
+        0% {
+            background: orangered;
+        }
+
+        5% {
+            background: transparent
+        }
+
+        100% {
+            background: orangered;
+        }
+    }
+
+    #reg_div {
+        text-align: center;
+    }
+    #reg_div a {
+        text-decoration: none;
+        color: white;
+    }
+
+</style>
+<script>
+    function showPwd() {
+        var a = document.getElementById("pwd");
+        if (a.type === "password") {
+            a.type = "text";
+        } else {
+            a.type = "password";
+        }
+    }
+</script>

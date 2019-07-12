@@ -1,0 +1,342 @@
+<!--
+=========================================================
+ Paper Dashboard 2 - v2.0.0
+=========================================================
+
+ Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard/blob/master/LICENSE)
+
+ Coded by Creative Tim
+
+=========================================================
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Paper Dashboard 2 by Creative Tim
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <link href="/css/views/profile.css" rel="stylesheet" />
+    <link href="/scss/profile.scss" rel="stylesheet">
+    <style>
+        .dropdown-check-list {
+            display: inline-block;
+        }
+
+        .dropdown-check-list .anchor {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px 50px 5px 10px;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown-check-list .anchor:after {
+            position: absolute;
+            content: "";
+            border-left: 2px solid black;
+            border-top: 2px solid black;
+            padding: 5px;
+            right: 10px;
+            top: 20%;
+            -moz-transform: rotate(-135deg);
+            -ms-transform: rotate(-135deg);
+            -o-transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+        }
+
+        .dropdown-check-list .anchor:active:after {
+            right: 8px;
+            top: 21%;
+        }
+
+        .dropdown-check-list ul.items {
+            padding: 2px;
+            display: none;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        .dropdown-check-list ul.items li {
+            list-style: none;
+        }
+
+        #list1 ul {
+            position: absolute;
+            background: white;
+            z-index: 1;
+            width: 149px;
+            border-radius: 5px;
+        }
+
+        #list1 {
+            outline: none;
+            border-radius: 5px;
+        }
+
+        #list2 ul {
+            position: absolute;
+            background: white;
+            z-index: 1;
+            width: 149px;
+            border-radius: 5px;
+        }
+
+        #list2 {
+            outline: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="/home">Home</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <!-- <div class="panel-header panel-header-sm">
+
+
+</div> -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="/img/damir-bosnjak.jpg" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <div class="author">
+                                    <a href="#">
+                                        <img class="avatar border-gray" src="/img/mike.jpg" alt="...">
+                                        <h5 class="title"><%=info.name%></h5>
+                                    </a>
+                                    <p class="description">
+                                        <%if(info.gender == 1) {%>
+                                        @Male
+                                        <%}if(info.gender == 2) {%>
+                                        @Female<%}%>
+                                    </p>
+                                </div>
+                                <p class="description text-left">
+                                        <strong>Age: </strong><%=info.age%>
+                                        <br><strong>Email: </strong><%=info.email%>
+                                        <br><strong>Favorite cities: </strong><%=info.enjoy_city%>
+                                        <br> <strong>Travel habits: </strong><%=info.travel_type%>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card card-user">
+                                <div class="card-header">
+                                    <h5 class="card-title">Edit Profile</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form action="/updateprofile" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>Name
+                                                        <input name="name" type="text" class="form-control"
+                                                            placeholder="<%=info.name%>" value="<%=info.name%>">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 px-1">
+                                                <div class="form-group">
+                                                    <label>Gender
+                                                        <select class="form-control" name="gender">
+                                                            <option value="1" <%if(info.gender ==2){%>selected<%}%>>Female</option>
+                                                            <option value="2" <%if(info.gender ==1){%>selected<%}%>>Male</option>
+                                                            <option value="0" <%if(info.gender ==0){%>selected<%}%>>Other</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input name="email" type="email" class="form-control" value="<%=info.email%>" placeholder="<%=info.email%>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Age</label>
+                                                            <input name="age" type="number" class="form-control" value="<%=info.age%>" placeholder="<%=info.age%>" min="0"
+                                                            onkeypress="return event.charCode >= 48">
+                                                        </div>
+                                                    </div>
+                                            <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label>Favorite place</label>
+                                                    <br>
+                                                    <div id="list2" class="dropdown-check-list" tabindex="100">
+                                                        <span class="anchor">Choose the cities</span>
+                                                        <ul id="items2" class="items">
+                                                            <li><input type="checkbox" name="favorite_city" <%if(info.enjoy_city.includes("HN")){%>checked<%}%> value="HN"/>Ha Noi </li>
+                                                            <li><input type="checkbox" name="favorite_city" <%if(info.enjoy_city.includes("DN")){%>checked<%}%> value="DN"/>Da Nang</li>
+                                                            <li><input type="checkbox" name="favorite_city" <%if(info.enjoy_city.includes("HP")){%>checked<%}%> value="HP"/>Hai Phong </li>
+                                                            <li><input type="checkbox" name="favorite_city" <%if(info.enjoy_city.includes("HCM")){%>checked<%}%> value="HCM"/>Ho Chi Minh </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Nơi yêu thích</label>
+                                                    <br>
+                                                    <div id="list1" class="dropdown-check-list" tabindex="100">
+                                                        <span class="anchor">Chọn loại hình du lịch mà bạn mong
+                                                            muốn</span>
+                                                        <ul id="items" class="items">
+                                                            <li><input name="travel_type" type="checkbox" />Apple </li>
+                                                            <li><input name="travel_type" type="checkbox" />Orange</li>
+                                                            <li><input name="travel_type" type="checkbox" />Grapes </li>
+                                                            <li><input name="travel_type" type="checkbox" />Berry </li>
+                                                            <li><input name="travel_type" type="checkbox" />Mango </li>
+                                                            <li><input name="travel_type" type="checkbox" />Banana </li>
+                                                            <li><input name="travel_type" type="checkbox" />Tomato</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="update ml-auto mr-auto">
+                                                <button type="submit" class="btn btn-primary btn-round">Update
+                                                    Profile</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer footer-black  footer-white ">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <nav class="footer-nav">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="credits ml-auto">
+                                <span class="copyright">
+                                    ©
+                                    <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!--   Core JS Files   -->
+        <script src="/js/core/jquery.min.js"></script>
+        <script src="/js/core/popper.min.js"></script>
+        <script src="/js/core/bootstrap.min.js"></script>
+        <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!--  Google Maps Plugin    -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- Chart JS -->
+        <script src="/js/plugins/chartjs.min.js"></script>
+        <!--  Notifications Plugin    -->
+        <script src="/js/plugins/bootstrap-notify.js"></script>
+        <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+        <script>
+
+            var checkList = document.getElementById('list1');
+            var items = document.getElementById('items');
+            checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+                if (items.classList.contains('visible')) {
+                    items.classList.remove('visible');
+                    items.style.display = "none";
+                } else {
+                    items.classList.add('visible');
+                    items.style.display = "block";
+                }
+
+            }
+
+            items.onblur = function (evt) {
+                items.classList.remove('visible');
+            }
+
+            var checkList2 = document.getElementById('list2');
+            var items22 = document.getElementById('items2');
+            checkList2.getElementsByClassName('anchor')[0].onclick = function (evt) {
+                if (items2.classList.contains('visible')) {
+                    items2.classList.remove('visible');
+                    items2.style.display = "none";
+                } else {
+                    items2.classList.add('visible');
+                    items2.style.display = "block";
+                }
+
+            }
+
+            items2.onblur = function (evt) {
+                items2.classList.remove('visible');
+            }
+
+        </script>
+</body>
+
+</html>
