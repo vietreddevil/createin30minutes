@@ -1226,9 +1226,7 @@ textarea.form-control {
     color: #66615b;
     display: block;
     height: 20px;
-    left: 0;
     position: absolute;
-    top: 0;
     width: 20px;
     text-align: center;
     line-height: 21px;
@@ -1251,8 +1249,6 @@ textarea.form-control {
 .radio .icons .second-icon {
   display: inline-table;
   position: absolute;
-  left: 0;
-  top: 0;
   background-color: transparent;
   margin: 0;
   opacity: 1;

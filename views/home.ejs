@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="/paper_img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Paper Kit by Creative Tim</title>
+    <title>Create in 30 minutes</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -20,7 +20,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-
+    
 </head>
 
 <body onresize="configview();">
@@ -35,15 +35,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Create in 30 minutes</a>
+                <a class="navbar-brand" href="/">Create in 30 minutes</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navigation-example-2">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a onclick="getLocation();" class="btn btn-simple">
+                            <i class="fa fa-map-marker"></i></a>
+                    </li>
+                    <li>
                         <a href="/profile" class="btn btn-simple">
-                        <i class="fa fa-user"></i></a>
+                            <i class="fa fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-rotate" href="/myplan" title="My plan">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                        </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -53,47 +62,59 @@
         <!--  -->
         <div id="container">
             <div class="wrapper">
-                <div class="landing-header"
-                    style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780457/banner/zjpdjgvjmwfh6tdydteh.webp');">
+                <div class="landing-header" style="background-image: url('/img/home.webp');">
                     <div class="container">
                         <div class="motto" style="text-align: center;">
-                                <form class="contact-form" action="/editprofilt" method="POST">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label>Name</label>
-                                            <input required class="form-control" name="name" placeholder="Name">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Email</label>
-                                            <input required type="email" name="username" class="form-control"
-                                                placeholder="Email">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Password</label>
-                                            <input required type="password" class="form-control"
-                                                placeholder="Password" name="password">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Gender</label>
-                                            <select class="form-control" name="gender">
-                                                <option value="2" selected>Female</option>
-                                                <option value="1">Male</option>
-                                                <option value="0">Other</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Age</label>
-                                            <input required type="number" name="age" class="form-control"
-                                                placeholder="Enter your age">
-                                        </div>
+                            <form class="contact-form" action="/createplan" method="POST">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label>Destination</label>
+                                        <select class="form-control" name="des">
+                                            <option value="Ha Noi">
+                                                Ha Noi
+                                            </option>
+                                        </select>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-md-offset-4">
-                                            <input type="submit" class="btn btn-danger btn-block btn-lg btn-fill"
-                                                value="Registry" />
-                                        </div>
+                                    <div class="col-md-2">
+                                        <label>Time</label>
+                                        <input required class="datepicker form-control" name="time"
+                                            placeholder="06/09/2019">
                                     </div>
-                                </form>
+                                    <div class="col-md-1">
+                                        <label>Children</label>
+                                        <input type="number" required class="form-control"min="0" name="child"
+                                            placeholder="0, 1, 2">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label>Adult</label>
+                                        <input type="number" required class="form-control"min="0" name="adult"
+                                            placeholder="0, 1, 2">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label>Older</label>
+                                        <input type="number" required class="form-control" min="0" name="old"
+                                            placeholder="0, 1, 2">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Religion</label>
+                                        <select class="form-control">
+                                            <option selected>.</option>
+                                            <option>.</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Budget</label>
+                                        <input type="number" required class="form-control" name="budget" placeholder="vnd">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-4">
+                                        <input name="type_submit" type="submit" class="btn btn-danger btn-block btn-lg btn-fill"
+                                            value="Create plan" />
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -256,5 +277,16 @@
 
 <script src="/js/ct-paper.js"></script>
 <script src="/js/view/index.js"></script>
-
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(suggest);
+        } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function suggest(position) {
+        location.href = '/suggest/' + position.coords.latitude + '/' + position.coords.longitude;
+    }
+    </script>
 </html>

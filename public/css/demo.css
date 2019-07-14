@@ -997,6 +997,9 @@ pre.prettyprint{
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 4;
+    background-color: #FFFCF5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .landing-header {
     color:white;
@@ -1014,3 +1017,52 @@ pre.prettyprint{
 .one-location:hover {
     margin-top: -10px;
 }
+.carousel-inner > .item {
+    padding-top: 20px !important;
+    height: 100%;
+}
+.item {
+    height: calc(100vh - 90px) !important;
+}
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    width: 60%;
+}
+.item .card{
+    height: calc(100% - 20px);
+}
+.carousel-inner {
+    background-color: transparent !important;
+}
+.icons {
+    left: 45% !important;
+    bottom: -25px !important;
+}
+.carousel-inner label {
+    position: static !important;
+}
+#carousel a.left {
+    left: 20% !important;
+}
+#carousel a.right {
+    right: 20% !important;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(129, 125, 125); 
+    border-radius: 10px;
+  }

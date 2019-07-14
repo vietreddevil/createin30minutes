@@ -1,0 +1,184 @@
+<!--
+=========================================================
+ Paper Dashboard 2 - v2.0.0
+=========================================================
+
+ Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard/blob/master/LICENSE)
+
+ Coded by Creative Tim
+
+=========================================================
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Create in 30 minutes</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <link href="/css/views/plan.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url('/img/plan.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper ">
+        <div class="main-panel" style="width: 100%; background-color: transparent !important;">
+            <!-- Navbar -->
+            <nav class="topbar navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent"
+                style="height: 89px; background-color: #FFFCF5 !important">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="#">Create in 30 minutes</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav">
+                                <li>
+                                        <a onclick="getLocation();" class="btn btn-simple">
+                                            <i class="fa fa-map-marker"></i></a>
+                                    </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" href="/profile" title="profile">
+                                    <i class="fa fa-user"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Account</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" href="/myplan" title="My plan">
+                                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Plan</span>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <!-- <div class="panel-header panel-header-lg">
+
+  <canvas id="bigDashboardChart"></canvas>
+
+
+</div> --> 
+            <div class="content">
+                <div class="row">
+                    <%for(var i = 0; i < dess.length; i++){%>
+                    <div class="one-des row">
+                        <div class="card">
+                            <img src="<%=dess[i].img%>">
+                        </div>
+                        <div class="des-info" style="position: relative">
+                            <span class="des-name"><%=dess[i].name%></span>
+                            <div class="stars">
+                                <%if(dess[i].rating % 1 != 0) {%>
+                                <%for(var j = 0; j < parseInt(dess[i].rating); j++) {%>
+                                <span class="star on"></span><%}%>
+                                                <span class="star half"></span>
+                                                <%for(var j = 0; j < (5 - Math.ceil(dess[i].rating)); j++) {%>
+                                <span class="star"></span><%}%>
+                                            <%}else {%>
+                                <%for(var j = 0; j < dess[i].rating; j++) {%>
+                                <span class="star on"></span><%}%>
+                                                <%for(var j = 0; j < (5 - (dess[i].rating)); j++) {%>
+                                <span class="star"></span><%}%>
+                                            <%}%>
+                                <span><%=dess[i].numberReview%> reviewed</span>
+                            </div>
+                            <div class="des-time">
+                                06/09/2019
+                            </div>
+                            <div class="des-prize">
+                                $ 12,000,000 VND
+                            </div>
+                            <div class="des-desc">
+                                <%=dess[i].type%>
+                            </div>
+                            <%if(dess[i].status == 1) {%>
+                                <button class="btn btn-danger btn-round" disabled>&#10003;</button>
+                            <%}else {%>
+                                <button id="<%=dess[i].id%>" class="btn btn-success btn-round" onclick="check_went('<%=dess[i].id%>')">Đã đi qua</button>
+                            <%}%>
+                        </div>
+                    </div>
+                    <%}%>
+                    <div class="one-des row">
+                        <div class="card">
+                            <img src="/img/hoguom.jpg">
+                        </div>
+                        <div>
+                    <%=dess.length%>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="/js/core/jquery.min.js"></script>
+    <script src="/js/core/popper.min.js"></script>
+    <script src="/js/core/bootstrap.min.js"></script>
+    <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Chart JS -->
+    <script src="/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="/demo/demo.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+        function check_went(event) {
+            $('#' + event).html('&#10003;');
+            $('#' + event).attr('class', 'btn btn-danger btn-round');
+            $('#' + event).attr('disabled', 'disabled');
+        }function suggest(position) {
+        location.href = '/suggest/' + position.coords.latitude + '/' + position.coords.longitude;
+    }
+    </script>
+</body>
+
+</html>
